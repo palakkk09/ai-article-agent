@@ -3,7 +3,7 @@ import time
 import streamlit as st
 from agents.article_agent import ArticleAgent
 
-# ---------------- PAGE CONFIG ----------------
+# page config
 
 st.set_page_config(
     page_title="AI Article Generator",
@@ -11,7 +11,6 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# ---------------- HIDE STREAMLIT DEFAULT UI ----------------
 
 hide_streamlit_style = """
 <style>
@@ -47,7 +46,7 @@ header {
 
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
-# ---------------- TITLE ----------------
+
 
 st.title("AI Article Generation Agent")
 
@@ -55,25 +54,23 @@ st.markdown(
     "Turn a topic into a polished, publication-ready article with AI-driven research"
 )
 
-# ---------------- SIDEBAR ----------------
+
 
 with st.sidebar:
     st.header("Agent Activity")
 
     status_box = st.empty()
 
-# ---------------- AGENT ----------------
 
 agent = ArticleAgent()
 
-# ---------------- INPUT ----------------
 
 topic = st.text_input(
     "Article Topic",
     placeholder="Example: Future of AI Agents"
 )
 
-# ---------------- BUTTON ----------------
+
 
 if st.button("Generate Article"):
 
@@ -99,7 +96,7 @@ if st.button("Generate Article"):
         # STEP 5
         status_box.success("Article Generated Successfully")
 
-        # ---------------- OUTPUT ----------------
+        
 
         st.markdown("---")
 
