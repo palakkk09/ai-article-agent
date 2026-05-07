@@ -1,3 +1,4 @@
+
 from services.llm_service import get_llm
 from tools.tavily_tool import search_articles
 from agents.prompts import ARTICLE_PROMPT
@@ -9,7 +10,7 @@ class ArticleAgent:
     def __init__(self):
         self.llm = get_llm()
 
-    def generate_article(self, topic):
+    def generate_content(self, topic, output_type):
 
         search_data = search_articles(topic)
 
@@ -20,17 +21,17 @@ class ArticleAgent:
             formatted_results += f"""
             Title: {result.get('title')}
             Content: {result.get('content')}
-
             """
 
         prompt = PromptTemplate(
-            input_variables=["topic", "search_results"],
+            input_variables=["topic", "search_results", "output_type"],
             template=ARTICLE_PROMPT
         )
 
         final_prompt = prompt.format(
             topic=topic,
-            search_results=formatted_results
+            search_results=formatted_results,
+            output_type=output_type
         )
 
         response = self.llm.invoke(final_prompt)
