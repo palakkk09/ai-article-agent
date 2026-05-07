@@ -1,3 +1,4 @@
+
 # AI Article Generation Agent
 
 AI-powered article generation system built using:
@@ -89,7 +90,7 @@ AI Processing
 ↓
 Article Generation
 ↓
-Frontend Output
+Frontend Output based on the type of output choice selected by user 
 ```
 
 ---
@@ -100,3 +101,4 @@ Palak
 
 GitHub:
 https://github.com/palakkk09
+
